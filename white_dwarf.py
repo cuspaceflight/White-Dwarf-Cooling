@@ -15,7 +15,7 @@ pc = 10e5                   # Chamber pressure (Pa)
 thrust = 1.5e3              # Desired thrust (N)
 p_amb = 1.01325e5           # Ambient pressure (Pa). 1.01325e5 is sea level atmospheric.
 OF_ratio = 3.5              # Oxidiser/fuel mass ratio
-water_mass_fraction = 0.40  # Fraction of the fuel that is water, by mass
+water_mass_fraction = 0.20  # Fraction of the fuel that is water, by mass
 
 # Chamber geometry
 inner_wall_thickness = 1.5e-3
