@@ -121,10 +121,10 @@ def get_data(inputs = inputs):
     Lc = ( 24*Vc/np.pi - (Dc**3 - Dt**3)/np.tan(45*np.pi/180) ) / (6*Dc**2)   
 
     # Rao bell nozzle geometry
-    xs, ys = bam.rao.get_rao_contour(Rc = Rc, 
-                                    Rt = Dt / 2, 
+    xs, ys = bam.rao.get_rao_contour(r_c = Rc, 
+                                    r_t = Dt / 2, 
                                     area_ratio = area_ratio_froz, 
-                                    Lc = Lc, 
+                                    L_c = Lc, 
                                     theta_conv = 45)
 
     # Graphite extends from the nozzle contour to the inside of the copper tube
@@ -219,7 +219,7 @@ def get_data(inputs = inputs):
     # Set up the objects we need
     perfect_gas = bam.PerfectGas(gamma = gamma, cp = cp)                   # Approximate values for CO2
     chamber_conditions = bam.ChamberConditions(p0 = pc, T0 = Tc)
-    geometry = bam.Geometry(xs = xs, ys = ys)
+    geometry = bam.Geometry(xs = xs, rs = ys)
 
     copper_wall = bam.Wall(material = copper_material, thickness = inner_wall_thickness) 
     graphite_wall = bam.Wall(material = graphite_material, thickness = graphite_thickness) 
@@ -233,11 +233,11 @@ def get_data(inputs = inputs):
 
     # Add a cooling jacket to the engine
     engine.cooling_jacket = bam.CoolingJacket(T_coolant_in = inlet_T, 
-                                            p0_coolant_in = inlet_p0, 
+                                            p_coolant_in = inlet_p0, 
                                             mdot_coolant = mdot_coolant, 
                                             channel_height = channel_height,
                                             blockage_ratio = blockage_ratio,
-                                            number_of_fins = number_of_fins,
+                                            number_of_channels = number_of_fins,
                                             coolant_transport = coolant_transport,
                                             configuration = 'vertical',
                                             restrain_fins = False)
