@@ -2,7 +2,7 @@
 This is a copy of the Jupyter notebook, in .py form and as a function so you can play with the inputs.
 """
 
-import bamboo as bam
+import cusfbamboo as bam
 import cantera as ct
 import numpy as np
 import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ pc = 10e5                   # Chamber pressure (Pa)
 thrust = 1.5e3              # Desired thrust (N)
 p_amb = 1.01325e5           # Ambient pressure (Pa). 1.01325e5 is sea level atmospheric.
 OF_ratio = 3.5              # Oxidiser/fuel mass ratio
-water_mass_fraction = 0.20  # Fraction of the fuel that is water, by mass
+water_mass_fraction = 0.25  # Fraction of the fuel that is water, by mass
 
 # Chamber geometry
 inner_wall_thickness = 1.5e-3
@@ -31,7 +31,7 @@ inlet_p0 = 1.01325e5                                  # Tank / inlet coolant sta
 ideal_channel_height = 1.45e-3
 number_of_fins = 100
 ideal_blockage_ratio = 0.4                            # Fraction of area that is blocked by 'fins' - ignoring copper-stainless gap
-copper_stainless_gap = 0.5e-3                         # Gap between fin tips and stainless ID
+copper_stainless_gap = 2.0e-3                         # Gap between fin tips and stainless ID
 
 # Convert all inputs to dictionary form
 inputs = {"pc" : pc,
